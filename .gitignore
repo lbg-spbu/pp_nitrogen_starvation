@@ -3,9 +3,11 @@
 venv
 
 *.txt
+*.summary
 *.fastq
 *.sam
 *.bam
+*.bai
 
 *.tsv
 *.csv
