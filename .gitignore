@@ -1,0 +1,15 @@
+.idea
+.Rhistory
+venv
+
+*.txt
+*.fastq
+*.sam
+*.bam
+
+*.tsv
+*.csv
+*.png
+
+2.TrimmedData/fastqc/
+P.p_genome
