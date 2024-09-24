@@ -174,4 +174,5 @@ python ./main.py -f ../../5.DESeq/Result_Starv_0.05_repressed.tsv -o ../Pp2Sc_St
 deactivate
 
 cd ..
+rm -rf blast_script/
 ```
