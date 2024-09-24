@@ -80,7 +80,7 @@ TrimmomaticSE -threads 4 ../1.RawData/"$i".fastq "$i".fastq \
   LEADING:25 \
   TRAILING:25 \
   SLIDINGWINDOW:4:25 \
-  MINLEN:36 >> stat.txt
+  MINLEN:36 2>> stat.txt
 echo "==================== end $i ====================";
 done;
 
@@ -96,7 +96,8 @@ genome ([link](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000027005.1/)).
 Also, since we need the GTF file for further analysis, we need to make it from GFF.
 
 ```shell
-mkdir P.p_genome && cd ../P.p_genome
+cd ../
+mkdir P.p_genome && cd P.p_genome
 curl -o P.p_genome.zip \
   'https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_000027005.1/download?include_annotation_type=GENOME_FASTA&include_annotation_type=GENOME_GFF&hydrated=FULLY_HYDRATED'
 unzip P.p_genome.zip
@@ -105,15 +106,15 @@ gffread ncbi_dataset/data/GCF_000027005.1/genomic.gff -T -o ncbi_dataset/data/GC
 
 ## 4. Align trimmed reads to reference genome
 
-We used hisat-2 ([doi](https://doi.org/10.1038/s41587-019-0201-4)) to build genome indexes and perform alignment.
+We used **hisat-2** ([doi](https://doi.org/10.1038/s41587-019-0201-4)) to build genome indexes and perform alignment.
 
-Also, we used samtools ([doi](https://doi.org/10.1093/gigascience/giab008)) for
+Also, we used **samtools** ([doi](https://doi.org/10.1093/gigascience/giab008)) for translation to BAM format.
 
 ```shell
 mkdir index && cd index
 hisat2-build -f \
   ../ncbi_dataset/data/GCF_000027005.1/GCF_000027005.1_ASM2700v1_genomic.fna \
-  p_genome_index > Index_Logs.txt
+  p_genome_index 2> Index_Logs.txt
 ```
 
 ```shell
@@ -131,7 +132,7 @@ done;
 
 ## 5. Count aligned reads
 
-We used featureCounts ([doi](https://doi.org/10.1093/bioinformatics/btt656)) to count aligned reads.
+We used **featureCounts** ([doi](https://doi.org/10.1093/bioinformatics/btt656)) to count aligned reads.
 
 ```shell
 cd ../4.TableCount
@@ -144,7 +145,7 @@ featureCounts \
 
 ## 6. Differentially expressed gene analysis
 
-We used DESeq2 ([doi](https://doi.org/10.1186/s13059-014-0550-8)) to get differential gene expression.
+We used **DESeq2** ([doi](https://doi.org/10.1186/s13059-014-0550-8)) to get differential gene expression.
 
 ```shell
 cd ../5.DESeq
