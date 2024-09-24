@@ -49,8 +49,9 @@ Clone this repository and download raw data.
 *TODO add link after publication in NCBI GEO*
 
 ```shell
-git clone ...
-cd 1.RawData
+git clone git@github.com:lbg-spbu/pp_nitrogen_starvation.git Pp_nitrogen_starvation
+cd Pp_nitrogen_starvation/1.RawData
+# curl ...
 ```
 
 For further analysis the `1.RawData` folder should look like this:
