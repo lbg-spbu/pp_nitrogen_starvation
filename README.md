@@ -1,4 +1,4 @@
-# Effects of nitrogen starvation on gene expression in methylotrophic yeast Komagataella phaffii. Bioinformatic analysis of sequencing results
+# Specific features of the transcriptomic response to nitrogen starvation in methylotrophic yeast Komagataella phaffi. Bioinformatic analysis of sequencing results
 
 Authors:
 
@@ -43,6 +43,8 @@ https://github.com/lbg-spbu/blast_Pp2Sc
 ```
 
 ## 1. Download raw data
+
+Raw data can be found on NCBI GEO ([link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE278110)).
 
 Clone this repository and download raw data.
 
